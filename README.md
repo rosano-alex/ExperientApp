@@ -9,8 +9,7 @@ When launched, the app does the following:
 
 
 ### Highlights
-* Auth is implemented as a finite state machine.
-The additional bootstrapping state prevents page flicker during app initialization.
+* Auth is implemented as a finite state machine.  The additional bootstrapping state prevents page flicker during app initialization.
 
 * Authentication is controlled through a reducer-based state model.
 
