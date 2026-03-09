@@ -33,12 +33,7 @@ export default function Home() {
     <View>
       <Text style={styles.txt}>THIS IS THE HOME PAGE</Text>
       <Button style={{ width: 150 }} mode="contained" onPress={signOut}>Log out!</Button>
-      <view style={{ margin: 25 }}>
-
-        {/* 
-        // sadly, comp below doesnt seeem to work with RB
-        <JsonView data={FakeUser} shouldExpandNode={allExpanded} style={defaultStyles} /> */}
-      </view>
+      {/* <JsonView data={FakeUser} shouldExpandNode={allExpanded} style={defaultStyles} /> */}
     </View >
 
 
