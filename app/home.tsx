@@ -3,8 +3,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Button } from "react-native-paper";
 
 export default function Home() {
-  const { signOut } = useAuth();
+  const { signOut, state } = useAuth();
 
+  console.log('state', state)
+
+  console.log(';state ', state)
   return (
     <View>
       <Text style={styles.txt}>THIS IS THE HOME PAGE</Text>

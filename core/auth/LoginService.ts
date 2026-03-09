@@ -15,18 +15,40 @@ export async function authenticateUser(
 ): Promise<LoginResponse> {
 
 
+
+  const user = {
+    username: "VShah",
+    active: true,
+    roleId: 20,
+    dateCreated: "2018-03-02T00:00:00.000Z",
+    dateModified: "2018-03-02T00:00:00.000z",
+    lastName: "Shah",
+    firstName: "Viraj",
+    displayName: "Viraj Shah",
+    jiraUsername: "viraj.shah",
+    intacctUserId: "EE-00112",
+    userId: 41,
+    emailAddress: "vshah@experient.com",
+    openAtCurWeeksTimesheet: true,
+    activeInterviewer: true,
+    createIntacctTimesheet: true,
+    roleName: "Developer",
+  };
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
 
       if (username.length > 0 && password.length > 0) {
-        console.log('we are in here')
+
         resolve({
           accessToken: GUID(),
           refreshToken: GUID(),
-          ttl: generateTTL(3).toString()
+          ttl: generateTTL(3).toString(),
+          userData: user
+
         });
 
-        console.log('we are in here as well')
+
       } else {
         reject(new Error("Invalid credentials, try again"));
       }

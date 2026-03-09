@@ -10,11 +10,9 @@ export function GUID(): string {
 
 export function generateTTL(daysToAdd: number): number {
     const nowInSeconds = Math.floor(Date.now() / 1000);
-    return nowInSeconds + daysToAdd;
+    const secondsToAdd = daysToAdd * 86400;
+    return nowInSeconds + secondsToAdd;
 }
-
-
-
 // utils
 export function getCurrentTime(): number {
     const nowInSeconds = Math.floor(Date.now() / 1000);
@@ -24,3 +22,4 @@ export function getCurrentTime(): number {
 export function isExpired(ttl: number): boolean {
     return getCurrentTime() > ttl;
 }
+e

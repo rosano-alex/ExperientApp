@@ -26,18 +26,18 @@ export default function LoginScreen() {
       <Text style={{ fontSize: 15 }}>Please Login</Text>
 
       <TextInput
-        style={{ marginBottom: 18 }}
-        placeholder="Username"
+        label="Username"
         value={username}
         onChangeText={setUsername}
+        style={{ marginBottom: 18 }}
       />
 
       <TextInput
-        style={{ marginBottom: 16 }}
-        placeholder="Password"
-        secureTextEntry
+        label="Password"
         value={password}
+        secureTextEntry
         onChangeText={setPassword}
+        style={{ marginBottom: 18 }}
       />
 
       <Button mode="contained" onPress={handleLogin}>Log In</Button>

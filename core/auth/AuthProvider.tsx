@@ -24,7 +24,6 @@ interface AuthContextValue {
   signOut(): Promise<void>;
 }
 
-
 export function useAuth() {
   const context = useContext(AuthContext);
   if (!context) {
@@ -32,8 +31,6 @@ export function useAuth() {
   }
   return context;
 }
-
-
 
 export const AuthContext = createContext<AuthContextValue | undefined>(
   undefined
@@ -47,38 +44,46 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       try {
         const stored = await getLoginResponse();
 
-        // no session saved
         if (!stored) {
-          dispatch({ type: "BOOTSTRAP_COMPLETE", isAuthenticated: false });
+          dispatch({
+            type: "BOOTSTRAP_COMPLETE",
+            isAuthenticated: false
+          });
           return;
         }
 
-        const expired = isExpired(Number(stored.ttl))
+        const ttl = stored.ttl ? Number(stored.ttl) : 0;
 
-        if (expired) {
+        if (isExpired(ttl)) {
           await deleteLoginResponse();
-          dispatch({ type: "LOGOUT" });
+
+          dispatch({
+            type: "BOOTSTRAP_COMPLETE",
+            isAuthenticated: false
+          });
+
           return;
         }
 
-        // token is still valid
-        dispatch({ type: "LOGIN_SUCCESS" });
-
-      } catch (e) {
-        dispatch({ type: "LOGIN_SUCCESS" });
+        dispatch({
+          type: "BOOTSTRAP_COMPLETE",
+          isAuthenticated: true
+        });
+      } catch {
+        dispatch({
+          type: "BOOTSTRAP_COMPLETE",
+          isAuthenticated: false
+        });
       }
     };
 
     bootstrap();
   }, []);
 
-
-
-
-
   const signIn = async (token: LoginResponse) => {
     await setLoginResponse(token);
     dispatch({ type: "LOGIN_SUCCESS" });
+
   };
 
   const signOut = async () => {
