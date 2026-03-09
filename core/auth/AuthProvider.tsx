@@ -33,7 +33,7 @@ export function useAuth() {
 }
 
 export const AuthContext = createContext<AuthContextValue | undefined>(
-  undefined
+  undefined,
 );
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -47,7 +47,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         if (!stored) {
           dispatch({
             type: "BOOTSTRAP_COMPLETE",
-            isAuthenticated: false
+            isAuthenticated: false,
           });
           return;
         }
@@ -59,7 +59,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
           dispatch({
             type: "BOOTSTRAP_COMPLETE",
-            isAuthenticated: false
+            isAuthenticated: false,
           });
 
           return;
@@ -67,12 +67,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
         dispatch({
           type: "BOOTSTRAP_COMPLETE",
-          isAuthenticated: true
+          isAuthenticated: true,
         });
       } catch {
         dispatch({
           type: "BOOTSTRAP_COMPLETE",
-          isAuthenticated: false
+          isAuthenticated: false,
         });
       }
     };
@@ -80,17 +80,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     bootstrap();
   }, []);
 
-
-
   const signIn = async (token: LoginResponse) => {
     await setLoginResponse(token);
 
     dispatch({
       type: "LOGIN_SUCCESS",
-      user: token.userData!
+      user: token.userData!,
     });
   };
-
 
   const signOut = async () => {
     await deleteLoginResponse();
@@ -103,9 +100,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signIn,
       signOut,
     }),
-    [state]
+    [state],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
-

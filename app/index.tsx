@@ -1,4 +1,3 @@
-
 import { useAuth } from "@/core/auth/AuthProvider";
 import { authenticateUser } from "@/core/auth/LoginService";
 import { useState } from "react";
@@ -34,7 +33,9 @@ export default function LoginScreen() {
         onChangeText={setPassword}
         style={{ marginBottom: 18 }}
       />
-      <Button mode="contained" onPress={handleLogin}>Log In</Button>
+      <Button mode="contained" onPress={handleLogin}>
+        Log In
+      </Button>
     </View>
   );
 }

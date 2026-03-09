@@ -1,9 +1,7 @@
-import { AuthProvider, useAuth } from '@/core/auth/AuthProvider';
-import { Stack } from 'expo-router';
+import { AuthProvider, useAuth } from "@/core/auth/AuthProvider";
+import { Stack } from "expo-router";
 
 function RootNavigator() {
-
-
   const { state } = useAuth();
 
   return (
@@ -25,20 +23,10 @@ function RootNavigator() {
   );
 }
 
-
-
 export default function RootLayout() {
-
   return (
-
     <AuthProvider>
       <RootNavigator />
     </AuthProvider>
-
   );
 }
-
-
-
-
-

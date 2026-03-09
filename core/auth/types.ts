@@ -6,7 +6,7 @@ export type AuthStatus =
   | "unauthenticated"; // No valid session
 
 /**
- * Single source of truth 
+ * Single source of truth
  */
 export interface AuthState {
   status: AuthStatus;
@@ -14,13 +14,11 @@ export interface AuthState {
   user: User | null;
 }
 
-
 // These are the ONLY ways auth state may changes
 export type AuthAction =
   | { type: "BOOTSTRAP_COMPLETE"; isAuthenticated: boolean; user?: User | null }
   | { type: "LOGIN_SUCCESS"; user?: User }
   | { type: "LOGOUT" };
-
 
 export interface User {
   username: string;
@@ -33,7 +31,7 @@ export interface User {
   displayName: string;
   jiraUsername: string;
   intacctUserId: string;
-  userId: number,
+  userId: number;
   emailAddress: string;
   openAtCurWeeksTimesheet: boolean;
   activeInterviewer: boolean;
@@ -41,12 +39,9 @@ export interface User {
   roleName: string;
 }
 
-
-
 export interface LoginResponse {
   accessToken: string | null;
   refreshToken: string | null;
   ttl: string | null;
   userData?: User;
 }
-

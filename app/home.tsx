@@ -1,13 +1,12 @@
-import { useAuth } from '@/core/auth/AuthProvider';
-import { StyleSheet, Text, View } from 'react-native';
+import { useAuth } from "@/core/auth/AuthProvider";
+import { StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-paper";
-import React from 'react';
+import React from "react";
 
-import { JsonView, allExpanded, defaultStyles } from 'react-json-view-lite';
-import 'react-json-view-lite/dist/index.css';
+import { JsonView, allExpanded, defaultStyles } from "react-json-view-lite";
+import "react-json-view-lite/dist/index.css";
 
 export default function Home() {
-
   const { signOut, state } = useAuth();
 
   const FakeUser = {
@@ -32,23 +31,23 @@ export default function Home() {
   return (
     <View>
       <Text style={styles.txt}>THIS IS THE HOME PAGE</Text>
-      <Button style={{ width: 150 }} mode="contained" onPress={signOut}>Log out!</Button>
+      <Button style={{ width: 150 }} mode="contained" onPress={signOut}>
+        Log out!
+      </Button>
       {/* <JsonView data={FakeUser} shouldExpandNode={allExpanded} style={defaultStyles} /> */}
-    </View >
-
-
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   headerImage: {
-    color: '#808080',
+    color: "#808080",
     bottom: -90,
     left: -35,
-    position: 'absolute',
+    position: "absolute",
   },
   titleContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 8,
   },
   txt: {
@@ -57,6 +56,6 @@ const styles = StyleSheet.create({
     fontSize: 28,
     paddingTop: 30,
     paddingLeft: 5,
-    paddingBottom: 20
-  }
+    paddingBottom: 20,
+  },
 });

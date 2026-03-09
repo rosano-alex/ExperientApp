@@ -3,21 +3,16 @@ import { AuthState, AuthAction, User } from "./types";
 export const initialAuthState: AuthState = {
   status: "bootstrapping",
   isLoggedIn: false,
-  user: null
+  user: null,
 };
 
-export function authReducer(
-  state: AuthState,
-  action: AuthAction
-): AuthState {
-
+export function authReducer(state: AuthState, action: AuthAction): AuthState {
   switch (action.type) {
-
     case "BOOTSTRAP_COMPLETE":
       return {
         ...state,
         status: action.isAuthenticated ? "authenticated" : "unauthenticated",
-        isLoggedIn: action.isAuthenticated
+        isLoggedIn: action.isAuthenticated,
       };
 
     case "LOGIN_SUCCESS":
@@ -25,7 +20,7 @@ export function authReducer(
         ...state,
         status: "authenticated",
         isLoggedIn: true,
-        user: action.user as User
+        user: action.user as User,
       };
 
     case "LOGOUT":
@@ -33,7 +28,7 @@ export function authReducer(
         ...state,
         status: "unauthenticated",
         isLoggedIn: false,
-        user: null
+        user: null,
       };
 
     default:

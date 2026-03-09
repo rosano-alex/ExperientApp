@@ -1,6 +1,7 @@
 ---
-applyTo: '**'
+applyTo: "**"
 ---
+
 # Unit Test MCP
 
 ## CRITICAL — Always use MCP tools
@@ -11,13 +12,13 @@ applyTo: '**'
 
 ## MCP tools
 
-| Tool | When to use |
-|------|-------------|
-| `run_tests` | Execute tests (Jest, Vitest, pytest, .NET, custom). Set `include_coverage=true` to measure coverage. |
-| `generate_test` | Get guidance for creating/improving tests for a **single** source file. **Must be called first** — never skip it. |
-| `generate_tests_batch` | Scan a **folder** to find source files that need tests. |
-| `inspect_coverage` | Read existing coverage artifacts without re-running tests. |
-| `find_test_files` | Discover test files in a directory. |
+| Tool                   | When to use                                                                                                       |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `run_tests`            | Execute tests (Jest, Vitest, pytest, .NET, custom). Set `include_coverage=true` to measure coverage.              |
+| `generate_test`        | Get guidance for creating/improving tests for a **single** source file. **Must be called first** — never skip it. |
+| `generate_tests_batch` | Scan a **folder** to find source files that need tests.                                                           |
+| `inspect_coverage`     | Read existing coverage artifacts without re-running tests.                                                        |
+| `find_test_files`      | Discover test files in a directory.                                                                               |
 
 ## Rules
 
@@ -45,11 +46,13 @@ applyTo: '**'
   6. **Only then** move to the next file and repeat from step 1
 
   Do NOT call `generate_test` for all files first and then write all tests afterward. Each file must complete its full cycle before starting the next.
+
 - **Inspect coverage only:** Call `inspect_coverage` immediately. Do not re-run tests.
 
 ### 2. Framework detection
 
 Inspect the nearest `package.json` (JS/TS) or project config to choose the framework parameter:
+
 - **Jest**: `framework=jest` — test script/deps reference jest
 - **Vitest**: `framework=vitest` — test script/deps reference vitest
 - **pytest**: `framework=pytest`, `language=python`
@@ -61,6 +64,7 @@ Use the repo's existing test location conventions (`__tests__`, `tests/`, coloca
 ### 3. After `generate_test` returns
 
 `generate_test` returns guidance, not finished code — do **not** paste its raw output back to the user. You must:
+
 1. Read the source file to understand logic, inputs, and expected outputs.
 2. Synthesize concrete test code from the guidance.
 3. Create or update the test file (additive edits only if it exists).

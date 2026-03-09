@@ -7,7 +7,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios  ",
     "launch": "tsx server/server.ts",
-    "dev": "concurrently \"pnpm server\" \"wait-on http://localhost:3001 && pnpm app\""
+    "dev": "concurrently \"pnpm server\" \"wait-on http://localhost:3001 && pnpm app\"",
+    "prettier": "prettier . --write"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
@@ -27,6 +28,7 @@
     "expo-symbols": "~1.0.8",
     "expo-system-ui": "~6.0.9",
     "expo-web-browser": "~15.0.10",
+    "prettier": "^3.8.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-json-view": "^1.21.3",

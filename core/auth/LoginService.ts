@@ -8,14 +8,11 @@ import { GUID, generateTTL } from "./utils";
 //  - Error mapping would be centralized (datadog)
 //  - Error mapping would be centralized (datadog)
 //  - Error mapping would be centralized (datadog)
-// 
+//
 export async function authenticateUser(
-  username: string = '',
-  password: string = '',
+  username: string = "",
+  password: string = "",
 ): Promise<LoginResponse> {
-
-
-
   const user = {
     username: "VShah",
     active: true,
@@ -37,18 +34,13 @@ export async function authenticateUser(
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-
       if (username.length > 0 && password.length > 0) {
-
         resolve({
           accessToken: GUID(),
           refreshToken: GUID(),
           ttl: generateTTL(3).toString(),
-          userData: user
-
+          userData: user,
         });
-
-
       } else {
         reject(new Error("Invalid credentials, try again"));
       }
