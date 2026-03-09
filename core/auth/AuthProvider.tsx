@@ -72,26 +72,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     bootstrap();
   }, []);
 
-  const bootstrap = async () => {
-    let userAuthenticated = false;
-
-    const loginResponse = await getLoginResponse();
-
-    if (loginResponse?.ttl) {
-      const ttl = parseInt(loginResponse.ttl);
 
 
-      if (!isExpired(ttl)) {
-        userAuthenticated = true;
-      }
-    }
-
-    dispatch({
-      type: "BOOTSTRAP_COMPLETE",
-      isAuthenticated: userAuthenticated,
-
-    });
-  };
 
 
   const signIn = async (token: LoginResponse) => {
