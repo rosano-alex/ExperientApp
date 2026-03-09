@@ -7,9 +7,17 @@ This project is a React Native mobile application that implements a basic authen
 The architecture emphasizes clean separation of concerns. It uses context-based auth state management, reducers, and service layers. Persistent storage is used to maintain the session across app restarts, and the app checks token TTL (time-to-live) to determine whether the session is still valid.
 When launched, the app does the following:
 
-<br>
-## App Flow Diagram
-<p style="text-align: Left;"><img src="misc/flow.png" width="460"></p>
+
+### Highlights
+_Auth is implemented as a finite state machine.
+The additional bootstrapping state prevents page flicker during app initialization.
+
+Authentication is controlled through a reducer-based state model.
+
+A storage abstraction layer isolates persistence from the UI and state logic.
+
+Stack rendering is handled using the Expo Router protected routes feature, which determines the appropriate stack view based on authentication state._
+
 
 <br>
 
