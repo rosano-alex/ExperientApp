@@ -11,14 +11,15 @@ export type AuthStatus =
 export interface AuthState {
   status: AuthStatus;
   isLoggedIn: boolean;
+  user: User | null;
 }
+
 
 // These are the ONLY ways auth state may changes
 export type AuthAction =
-  | { type: "BOOTSTRAP_COMPLETE"; isAuthenticated: boolean }
-  | { type: "LOGIN_SUCCESS" }
+  | { type: "BOOTSTRAP_COMPLETE"; isAuthenticated: boolean; user?: User | null }
+  | { type: "LOGIN_SUCCESS"; user?: User }
   | { type: "LOGOUT" };
-
 
 
 export interface User {

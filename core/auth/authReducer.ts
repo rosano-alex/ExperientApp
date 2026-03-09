@@ -1,28 +1,40 @@
-import { AuthAction, AuthState } from "./types";
-
-//  Initial state assumes we are bootstrapping.
-//  The app must verify credentials
-//  before rendering either view stac
+import { AuthState, AuthAction, User } from "./types";
 
 export const initialAuthState: AuthState = {
   status: "bootstrapping",
-  isLoggedIn: false
+  isLoggedIn: false,
+  user: null
 };
 
-// Pure reducer
-export function authReducer(state: AuthState, action: AuthAction): AuthState {
+export function authReducer(
+  state: AuthState,
+  action: AuthAction
+): AuthState {
+
   switch (action.type) {
+
     case "BOOTSTRAP_COMPLETE":
       return {
+        ...state,
         status: action.isAuthenticated ? "authenticated" : "unauthenticated",
         isLoggedIn: action.isAuthenticated
-
       };
+
     case "LOGIN_SUCCESS":
-      return { status: "authenticated", isLoggedIn: true };
+      return {
+        ...state,
+        status: "authenticated",
+        isLoggedIn: true,
+        user: action.user as User
+      };
 
     case "LOGOUT":
-      return { status: "unauthenticated", isLoggedIn: false };
+      return {
+        ...state,
+        status: "unauthenticated",
+        isLoggedIn: false,
+        user: null
+      };
 
     default:
       return state;

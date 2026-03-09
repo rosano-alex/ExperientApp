@@ -80,11 +80,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     bootstrap();
   }, []);
 
+
+
   const signIn = async (token: LoginResponse) => {
     await setLoginResponse(token);
-    dispatch({ type: "LOGIN_SUCCESS" });
 
+    dispatch({
+      type: "LOGIN_SUCCESS",
+      user: token.userData!
+    });
   };
+
 
   const signOut = async () => {
     await deleteLoginResponse();
