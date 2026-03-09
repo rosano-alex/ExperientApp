@@ -9,14 +9,14 @@ When launched, the app does the following:
 
 
 ### Highlights
-Auth is implemented as a finite state machine.
+* Auth is implemented as a finite state machine.
 The additional bootstrapping state prevents page flicker during app initialization.
 
-Authentication is controlled through a reducer-based state model.
+* Authentication is controlled through a reducer-based state model.
 
 A storage abstraction layer isolates persistence from the UI and state logic.
 
-Stack rendering is handled using the Expo Router protected routes feature, which determines the appropriate stack view based on authentication state._
+* Stack rendering is handled using the Expo Router protected routes feature, which determines the appropriate stack view based on authentication state._
 
 
 <br>
