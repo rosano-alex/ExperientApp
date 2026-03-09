@@ -29,15 +29,16 @@ export default function Home() {
     roleName: "Developer",
   };
 
-
   return (
     <View>
       <Text style={styles.txt}>THIS IS THE HOME PAGE</Text>
       <Button style={{ width: 150 }} mode="contained" onPress={signOut}>Log out!</Button>
       <view style={{ margin: 25 }}>
-        <JsonView data={FakeUser} shouldExpandNode={allExpanded} style={defaultStyles} />
-      </view>
 
+        {/* 
+        // sadly, comp below doesnt seeem to work with RB
+        <JsonView data={FakeUser} shouldExpandNode={allExpanded} style={defaultStyles} /> */}
+      </view>
     </View >
 
 
