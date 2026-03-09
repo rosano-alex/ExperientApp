@@ -6,7 +6,7 @@ const server = express();
 
 server.use(
   cors({
-    origin: "http://localhost:5000", // adjust to your frontend
+    origin: "http://localhost:5000", //  to your 
     credentials: true,
   }),
 );

@@ -4,9 +4,6 @@ import { Button } from "react-native-paper";
 
 export default function Home() {
   const { signOut, state } = useAuth();
-
-  console.log('state', state)
-
   console.log(';state ', state)
   return (
     <View>

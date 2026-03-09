@@ -4,8 +4,14 @@
 This project is a React Native mobile application that implements a basic authentication flow controlling access to the rest of the app. The application simulates server authentication using a mock API response.
 
 The architecture emphasizes clean separation of concerns. It uses context-based auth state management, reducers, and service layers. Persistent storage is used to maintain the session across app restarts, and the app checks token TTL (time-to-live) to determine whether the session is still valid.
+When launched, the app does the following:
 
-## Local development setup
+<br>
+## App Flow Diagram
+<p style="text-align: Left;"><img src="misc/flow.png" width="460"></p>
+
+
+<br>
 
 <span style="font-size: 140%; font-weight: bold; color: darkGreen;">Command line setup instruction</span>
 

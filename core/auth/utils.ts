@@ -22,4 +22,4 @@ export function getCurrentTime(): number {
 export function isExpired(ttl: number): boolean {
     return getCurrentTime() > ttl;
 }
-e
+

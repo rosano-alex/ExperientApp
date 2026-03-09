@@ -15,23 +15,18 @@ export default function LoginScreen() {
     setPassword(password);
 
     const loginResponse = await authenticateUser(username, password);
-
     await signIn(loginResponse);
-
   };
 
   return (
     <View style={{ margin: 15, paddingBottom: 12 }}>
-
       <Text style={{ fontSize: 15 }}>Please Login</Text>
-
       <TextInput
         label="Username"
         value={username}
         onChangeText={setUsername}
         style={{ marginBottom: 18 }}
       />
-
       <TextInput
         label="Password"
         value={password}
@@ -39,7 +34,6 @@ export default function LoginScreen() {
         onChangeText={setPassword}
         style={{ marginBottom: 18 }}
       />
-
       <Button mode="contained" onPress={handleLogin}>Log In</Button>
     </View>
   );

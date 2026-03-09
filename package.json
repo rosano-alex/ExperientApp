@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios  ",
-    "launch": "tsx server/server.ts"
+    "launch": "tsx server/server.ts",
+    "dev": "concurrently \"pnpm server\" \"wait-on http://localhost:3001 && pnpm app\""
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
@@ -36,7 +37,8 @@
     "react-native-screens": "~4.16.0",
     "react-native-web": "~0.21.0",
     "react-native-worklets": "0.5.1",
-    "tsx": "^4.21.0"
+    "tsx": "^4.21.0",
+    "wait-on": "^9.0.4"
   },
   "devDependencies": {
     "@types/react": "~19.1.0",
