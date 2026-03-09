@@ -13,7 +13,7 @@ When launched, the app does the following:
 
 * Authentication is controlled through a reducer-based state model.
 
-A storage abstraction layer isolates persistence from the UI and state logic.
+* A storage abstraction layer isolates persistence from the UI and state logic.
 
 * Stack rendering is handled using the Expo Router protected routes feature, which determines the appropriate stack view based on authentication state._
 
